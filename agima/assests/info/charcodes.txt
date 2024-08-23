@@ -4,6 +4,7 @@
 ☷ - \u2637 - &#9783 - 坤 Кунь	Север	地 Земля
 
 © - \xa9 - &#169
+& - \x26 - &#38
 
 String.fromCodePoint(2632)
 '☲'.codePointAt(0).toString(16)
