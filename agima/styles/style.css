@@ -18,11 +18,12 @@ body {
   font-weight: 400;
   font-style: normal;
   color: var(--mainTextColor);
+  overflow-x: hidden;
 }
 
 h1, h2, h3 {
   font-family: "Space Grotesk", sans-serif;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .progress-bar {
@@ -56,6 +57,7 @@ h1, h2, h3 {
   border-radius: 16px;
   background-color: var(--midleGray);
   transition: 1s;
+  z-index: 109;
 }
 .header .button {
   position: absolute;
@@ -163,8 +165,26 @@ h1, h2, h3 {
 .main {
   width: 100%;
 }
+.main .header-block {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  height: 88px;
+  padding: 0 49px;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  background-color: var(--midleGray);
+}
+.main .header-block .header-block__title {
+  font-size: 24px;
+  line-height: 32px;
+  text-transform: capitalize;
+}
 .main .description-block {
   position: relative;
+  margin-bottom: 32px;
+  border-radius: 24px;
+  overflow: hidden;
 }
 .main .description-block .description-block__img {
   height: 430px;
@@ -178,7 +198,37 @@ h1, h2, h3 {
 }
 .main .description-block .description-block__text {
   position: absolute;
+  left: 117px;
   bottom: 0;
+  width: 451px;
+  padding: 30px 24px;
+  border-radius: 16px 16px 0 0;
+  background-color: var(--midleGray);
+}
+.main .description-block .description-block__text .description-block__text-head {
+  font-size: 24px;
+  line-height: 32px;
+}
+.main .description-block .description-block__text .description-block__text-par {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 24px;
+  line-height: 32px;
+}
+.main .section {
+  margin-bottom: 24px;
+}
+.main .section h2 {
+  margin-bottom: 16px;
+  font-size: 24px;
+  line-height: 32px;
+}
+.main .section p {
+  margin-top: 16px;
+  font-size: 16px;
+  line-height: 24px;
+}
+.main .suggested {
+  margin-bottom: 47px;
 }
 
 /* --- === MainStyle === ---*/

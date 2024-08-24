@@ -1,0 +1,300 @@
+
+/* Стандартные стили для слайдера */
+.slider-container
+{
+  --slide-transition: 1s;
+  --auto-scroll-time: 5s;
+
+  --slider-block-wrapper: 450px;
+
+  --slider-line-gap: 20px;
+
+  --line-item-block-width: 450px;
+  --line-item-block-height: 479px;
+
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+
+  /* padding: 10px 20px; */
+
+  /* background-color: azure; */
+}
+
+.slider-container .slider__arrow-left,
+.slider-container .slider__arrow-right
+{
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+
+  width: 32px;
+  height: 32px;
+
+  border-radius: 50%;
+  cursor: pointer;
+
+  background-color: #D9D9D9;
+
+  z-index: 110;
+}
+
+.slider-container .slider__arrow-left
+{
+  left: 16px;
+  top: 116px;
+
+  /* padding-left: 11px; */
+}
+
+.slider-container .slider__arrow-right
+{
+  right: 16px;
+  top: 116px;
+
+  /* padding-left: 13px; */
+}
+
+.slider-container .arrow-left__block,
+.slider-container .arrow-right__block
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* min-width: 60px;
+  min-height: 20px; */
+  width: 100%;
+  height: 100%;
+  
+  cursor: pointer;
+
+  /* background-color: #D9D9D9; */
+}
+
+.slider-container .slider-block
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-container .slider-block__wrapper
+{
+  width: var(--slider-block-wrapper);
+  height: var(--line-item-block-height);
+
+  /* overflow: hidden; */
+
+  /* background-color: blue; */
+}
+
+.slider-container .slider-line
+{
+  display: flex;
+  gap: var(--slider-line-gap);
+
+  /* Чтобы во время перетаскивания 
+  слайда ничего не выделить 
+  внутри него */
+  -webkit-user-select: none;
+  user-select: none;
+  /* Чтобы запретить скролл 
+  страницы, если мы начали 
+  двигать слайдер по оси X */
+  touch-action: pan-y;
+
+  transition: var(--slide-transition);
+}
+
+.slider-container .slider-line__item
+{
+  position: relative;
+  /* position: absolute; */
+
+  transition: var(--slide-transition);
+}
+
+.slider-container .slider-line__item .line-item__block
+{
+  width: var(--line-item-block-width);
+  height: var(--line-item-block-height);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  /* font-size: 50px; */
+
+  /* border: 1px solid red; */
+
+  /* background-color: aquamarine; */
+}
+
+.slider-container .slider-block__pagination
+{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 10px 0;
+}
+
+.slider-container .pagination-block
+{
+  width: 30px;
+  height: 10px;
+
+  cursor: pointer;
+
+  background-color: burlywood;
+
+  transition: calc(var(--slide-transition) / 2);
+}
+
+.slider-container .pagination-block__filler
+{
+  height: 100%;
+  width: 0;
+
+  background-color: brown;
+  /* background-color: transparent; */
+
+  transition: var(--slide-transition);
+}
+
+/* --- Activation styles --- */
+.activ-pagination
+{
+  width: 100% !important;
+}
+
+.activ-pagination-static
+{
+  background-color: brown !important;
+}
+
+.activ-pagination-animation
+{
+  animation: timerLine var(--auto-scroll-time) linear;
+}
+
+.pause-pagination-animation
+{
+  animation-play-state: paused;
+}
+
+.hiden-block
+{
+  position: absolute;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.activ-position-absolute
+{
+  position: absolute !important;
+}
+
+.active-opacity-0
+{
+  opacity: 0;
+}
+
+.active-collapse-animation
+{
+  animation: collapse-box var(--slide-transition) ease-in reverse;
+}
+
+.active-revcollapse-animation
+{
+  animation: collapse-box var(--slide-transition) ease-out;
+}
+
+.active-translateX-animation
+{
+  animation: collapse-gap var(--slide-transition) ease-out;
+}
+
+.active-revtranslateX-animation
+{
+  animation: collapse-gap var(--slide-transition) ease-in reverse;
+}
+
+/* --- Animation --- */
+/* Двигает заполняюшюю полоску пангинации */
+@keyframes timerLine
+{
+  from
+  {
+    width: 0%;
+  }
+  to
+  {
+    width: 100%;
+  }
+}
+
+@keyframes collapse-box
+{
+  from
+  {
+    width: 0px;
+  }
+  to
+  {
+    width: var(--line-item-block-width);
+  }
+}
+
+@keyframes collapse-gap
+{
+  from
+  {
+    transform: translateX(0px);
+  }
+  to
+  {
+    transform: translateX(calc(var(--slider-line-gap) * -1));
+  }
+}
+
+/* --- Hover ---*/
+.slider-container:hover .activ-pagination-animation
+{
+  animation-play-state: paused; /* --- Ставит анимацию на паузу при наведении курсора на блок сдайдера ---*/
+}
+
+/* --- @media hover:none --- */
+@media (hover: none)
+{
+  .slider-container:hover .activ-pagination-animation
+  {
+    animation-play-state: running; /* --- Предотвращает залипание ховер эффекта на мобильных усройствах,---*/
+  }                                /* ---для анимации пагинации---*/
+}
+
+@media (max-width: 580px)
+{
+  .slider-container
+  {
+    --line-item-block-width: 200px;
+  }
+
+  .slider-container .slider-block__wrapper
+  {
+    width: 200px;
+  }
+
+  .slider-container .pagination-block
+  {
+    width: 20px;
+  }
+}

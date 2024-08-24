@@ -28,12 +28,14 @@ body
   font-style: normal;
 
   color: var(--mainTextColor);
+
+  overflow-x: hidden;
 }
 
 h1,h2,h3
 {
   font-family: "Space Grotesk", sans-serif;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .progress-bar 
@@ -78,6 +80,8 @@ h1,h2,h3
   border-radius: 16px;
   background-color: var(--midleGray);
   transition: 1s;
+
+  z-index: 109;
 
   .button
   {
@@ -237,9 +241,36 @@ h1,h2,h3
 {
   width: 100%;
 
+  .header-block
+  {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+    height: 88px;
+
+    padding: 0 49px;
+    margin-bottom: 24px;
+
+    border-radius: 16px;
+    background-color: var(--midleGray);
+
+    .header-block__title
+    {
+      font-size: 24px;
+      line-height: 32px;
+      text-transform: capitalize;
+    }
+  }
+
   .description-block
   {
     position: relative;
+
+    margin-bottom: 32px;
+
+    border-radius: 24px;
+    overflow: hidden;
 
     .description-block__img
     {
@@ -260,8 +291,55 @@ h1,h2,h3
     .description-block__text
     {
       position: absolute;
+      left: 117px;
       bottom: 0;
+
+      width: 451px;
+
+      padding: 30px 24px;
+
+      border-radius: 16px 16px 0 0;
+      background-color: var(--midleGray);
+
+      .description-block__text-head
+      {
+        font-size: 24px;
+        line-height: 32px;
+      }
+
+      .description-block__text-par
+      {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 24px;
+        line-height: 32px;
+      }
     }
+  }
+
+  .section
+  {
+    margin-bottom: 24px;
+
+    h2
+    {
+      margin-bottom: 16px;
+
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    p
+    {
+      margin-top: 16px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  .suggested
+  {
+    margin-bottom: 47px;
   }
 }
 /* --- === MainStyle === ---*/
