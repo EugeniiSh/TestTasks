@@ -231,6 +231,99 @@ h1, h2, h3 {
   margin-bottom: 47px;
 }
 
+.footer {
+  padding-top: 64px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  color: var(--footerTextColor);
+  background-color: var(--midleGray);
+}
+.footer .footer-wrapper {
+  width: 91.66%;
+  margin: 0 auto;
+}
+.footer .links {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 36px;
+}
+.footer .links-social .links-social__title {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding-bottom: 32px;
+}
+.footer .links-social .links-social__title .title-head {
+  margin: 0;
+  font-size: 32px;
+  line-height: 40px;
+  color: var(--mainTextColor);
+  text-transform: uppercase;
+}
+.footer .links-social .links-social__parag {
+  width: 292px;
+  padding-bottom: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+}
+.footer .links-social .links-social__content {
+  display: flex;
+  gap: 20px;
+}
+.footer .links-social .links-social__content a {
+  position: relative;
+  display: block;
+  width: 34px;
+  height: 34px;
+}
+.footer .links-social .links-social__content a img {
+  position: absolute;
+  top: 0;
+  left: -18px;
+  pointer-events: none;
+}
+.footer .links-additional {
+  display: flex;
+  justify-content: space-between;
+  width: 756px;
+  padding-top: 16px;
+}
+.footer .links-additional .links-additional__block {
+  width: 152px;
+}
+.footer .links-additional h3 {
+  padding-bottom: 24px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 150%;
+}
+.footer .links-additional a {
+  display: block;
+  padding: 11.7px 0;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: var(--footerTextColor);
+  text-decoration: none;
+}
+.footer .rights {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 36px;
+  border-top: 1px solid rgba(72, 98, 132, 0.16);
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 150%;
+}
+.footer .rights div {
+  padding-bottom: 60px;
+}
+.footer .rights .rights-additional {
+  display: flex;
+  gap: 60px;
+}
+
 /* --- === MainStyle === ---*/
 
 /*# sourceMappingURL=style.css.map */

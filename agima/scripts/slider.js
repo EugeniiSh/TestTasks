@@ -407,8 +407,11 @@ export class Slider
     {
       this.posX1 = event.changedTouches[0].clientX; //Координаты начала касания по оси Х
 
-      const activPagination = this.slider.querySelector('.activ-pagination-animation'); //Текущая активная пагинация
-      activPagination.style.animationPlayState = 'paused'; //Ставим анимацию на паузу
+      if(this.autoScroll)
+      {
+        const activPagination = this.slider.querySelector('.activ-pagination-animation'); //Текущая активная пагинация
+        activPagination.style.animationPlayState = 'paused'; //Ставим анимацию на паузу
+      }
     });
 
     this.sliderLine.addEventListener('touchend', (event) => //Установка события на конец касания
