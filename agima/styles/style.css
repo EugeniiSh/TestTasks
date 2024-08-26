@@ -37,7 +37,7 @@ h1, h2, h3 {
 }
 .progress-bar .progress-bar__line {
   height: 100%;
-  width: 50%;
+  width: 0%;
   background-color: var(--progBarColor);
 }
 
@@ -56,18 +56,40 @@ h1, h2, h3 {
   padding: 24px;
   border-radius: 16px;
   background-color: var(--midleGray);
-  transition: 1s;
+  white-space: nowrap;
+  transition: 0.6s;
   z-index: 109;
+}
+.header--active {
+  width: 98px;
+  padding-left: 17px;
+}
+.header--active .title-head,
+.header--active .item-link__text,
+.header--active .content {
+  opacity: 0;
+  visibility: hidden;
+}
+.header--active .button.button {
+  left: 110px;
+}
+.header--active .button.button .button-arrow {
+  transform: scaleX(-1);
+}
+.header--active .button.button .button-hand {
+  left: 20px;
 }
 .header .button {
   position: absolute;
   top: 49.55px;
   left: 397px;
   cursor: pointer;
+  transition: 0.6s;
 }
 .header .button .button-arrow {
   width: 40px;
   height: 49px;
+  transition: 0.6s;
 }
 .header .button .button-arrow img {
   width: 100%;
@@ -77,24 +99,28 @@ h1, h2, h3 {
   position: absolute;
   left: 11px;
   bottom: -55px;
+  transition: 0.6s;
 }
 .header .title {
   display: flex;
   align-items: center;
   gap: 24px;
-  padding-bottom: 32px;
+  padding-bottom: 20px;
 }
 .header .title .title-head {
   margin: 0;
+  width: 242px;
   text-transform: uppercase;
   font-size: 32px;
   line-height: 40px;
+  transition: 0.6s;
 }
 .header .nav {
   padding-left: 16px;
-  padding-bottom: 24px;
+  padding-bottom: 18px;
   font-size: 32px;
   text-transform: capitalize;
+  overflow: hidden;
 }
 .header .nav li {
   list-style: none;
@@ -107,9 +133,16 @@ h1, h2, h3 {
   line-height: 24px;
   text-decoration: none;
 }
+.header .nav .nav-list__item:nth-last-of-type(1n + 2) {
+  padding-bottom: 6px;
+}
+.header .nav .item-link__text {
+  transition: 0.6s;
+}
 .header .content {
   padding-left: 16px;
   padding-bottom: 56px;
+  transition: 0.6s;
 }
 .header .content .content-head {
   padding-bottom: 16px;
@@ -135,6 +168,7 @@ h1, h2, h3 {
   gap: 8px;
 }
 .header .content .content-list__item .item-link__num {
+  flex-shrink: 0;
   width: 22px;
   height: 22px;
   font-family: "Rhodium Libre", serif;
@@ -145,9 +179,28 @@ h1, h2, h3 {
   background-color: black;
 }
 .header .content .content-list__item .item-link__text {
+  position: relative;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
+  transition: 0.6s;
+}
+.header .content .content-list__item .item-link__text::after {
+  position: absolute;
+  content: "";
+  left: 0;
+  bottom: 2px;
+  height: 1px;
+  width: 100%;
+  opacity: 0;
+  background-color: var(--mainTextColor);
+  transition: 0.3s;
+}
+.header .content .content-list__item .item-link__text:hover::after {
+  opacity: 1;
+}
+.header .content .content-list__item .item-link__text--active::after {
+  opacity: 1;
 }
 .header .content .content-list__item .content-list__item-list {
   padding-left: 16px;
@@ -165,6 +218,18 @@ h1, h2, h3 {
 .main {
   width: 100%;
 }
+.main__is-header--active.main--active .header-block {
+  padding-left: 50%;
+}
+.main__is-header--active.main--active .header-block .header-block__title {
+  transform: translateX(-50%);
+}
+.main__is-header--active.main--active .section {
+  margin-bottom: 48px;
+}
+.main__is-header--active.main--active .where-can {
+  margin-top: 168px;
+}
 .main .header-block {
   display: flex;
   align-items: center;
@@ -174,11 +239,13 @@ h1, h2, h3 {
   margin-bottom: 24px;
   border-radius: 16px;
   background-color: var(--midleGray);
+  transition: 0.6s;
 }
 .main .header-block .header-block__title {
   font-size: 24px;
   line-height: 32px;
   text-transform: capitalize;
+  transition: 0.6s;
 }
 .main .description-block {
   position: relative;
@@ -227,8 +294,17 @@ h1, h2, h3 {
   font-size: 16px;
   line-height: 24px;
 }
+.main .section p span {
+  display: block;
+}
+.main .where-does p:nth-of-type(1n + 2) {
+  margin-top: 24px;
+}
 .main .suggested {
   margin-bottom: 47px;
+}
+.main .suggested .suggested-head {
+  margin-bottom: 24px;
 }
 
 .footer {
@@ -261,10 +337,11 @@ h1, h2, h3 {
 }
 .footer .links-social .links-social__parag {
   width: 292px;
-  padding-bottom: 30px;
+  padding-bottom: 24px;
   font-weight: 500;
   font-size: 16px;
   line-height: 150%;
+  letter-spacing: -0.3px;
 }
 .footer .links-social .links-social__content {
   display: flex;
@@ -287,6 +364,7 @@ h1, h2, h3 {
   justify-content: space-between;
   width: 756px;
   padding-top: 16px;
+  letter-spacing: -0.3px;
 }
 .footer .links-additional .links-additional__block {
   width: 152px;
@@ -315,13 +393,14 @@ h1, h2, h3 {
   font-weight: 600;
   font-size: 16px;
   line-height: 150%;
+  letter-spacing: -0.3px;
 }
 .footer .rights div {
   padding-bottom: 60px;
 }
 .footer .rights .rights-additional {
   display: flex;
-  gap: 60px;
+  gap: 68px;
 }
 
 /* --- === MainStyle === ---*/
