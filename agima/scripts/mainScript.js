@@ -18,6 +18,11 @@ const sliderSetup =
 }
 
 const sliderObj = new Slider(sliderSetup);
+
+window.addEventListener('resize',(e) => 
+{
+  sliderObj.setup(slider);
+});
 /* --- === Slider === ---*/
 
 /* +++ === Header === +++*/
