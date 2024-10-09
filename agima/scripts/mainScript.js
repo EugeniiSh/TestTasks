@@ -102,3 +102,4 @@ document.querySelector('.content-list').addEventListener('click', (event) =>
   }
 });
 /* --- === Navigation backlight === ---*/
+
