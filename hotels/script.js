@@ -156,3 +156,131 @@ function declension(num)
 
 console.log(declension(1441));
 */
+
+
+/*
+Задача 2. Написать функцию/метод, которая на вход получает массив положительных целых чисел 
+произвольной длины. 
+Например [42, 12, 18]. На выходе возвращает массив чисел, которые являются общими делителями 
+для всех указанных числе. В примере это будет [2, 3, 6].
+*/
+/*
+function commonDiv(nums)
+{
+  function getDivisors(num)
+  {
+    const divisors = [];
+
+    for(let i = 2; i <= num; i += 1)
+    {
+      if(num % i === 0)
+      {
+        divisors.push(i);
+      }
+    }
+
+    return divisors;
+  }
+
+  nums.sort((a, b) => a - b);
+  const divExample = getDivisors(nums[0]);
+
+  const allDivisors = {};
+
+  for(let i = 1; i < nums.length; i += 1)
+  {
+    divExample.forEach((item) =>
+    {
+      if(nums[i] % item === 0)
+      {
+        allDivisors[item] ? allDivisors[item] += 1 : allDivisors[item] = 1;
+      }
+    });
+  }
+
+  const result = [];
+  Object.entries(allDivisors).forEach((item) => 
+  {
+    if(item[1] === nums.length - 1)
+    {
+      result.push( +item[0] );
+    }
+  });
+
+  return result;
+}
+
+console.log(commonDiv([42, 12, 18]));
+console.log(commonDiv([100, 200, 300, 400, 2225, 175, 19873625]));
+*/
+
+/*
+Задача 3. Написать функцию/метод, которая возвращает массив простых чисел в диапазоне 
+(2 числа - минимальное и максимальное) заданных чисел.
+Например, на вход переданы 2 числа: от 11 до 20  (диапазон считается включая граничные значения).
+*/
+/*
+function primeNums(min, max)
+{
+  const result = [];
+
+  if(min === 2) result.push(2);
+
+  firstStep:
+  for(let i = min; i <= max; i += 1)
+  {
+    if(i % 2 === 0 && i !== 2 || i === 1) continue;
+
+    for(let j = 3; j < i; j += 1)
+    {
+      if(i % j === 0) continue firstStep;
+    }
+
+    result.push(i);
+  }
+
+  return result;
+}
+
+console.log(primeNums(1, 220));
+*/
+
+
+/*
+Задача 4. Написать метод, который в консоль выводит таблицу умножения. На вход метод получает число, 
+до которого выводит таблицу умножения. В консоли должна появиться таблица. Например, 
+если на вход пришло число 5, то получим:
+* 1  2  3  4  5
+1 1  2  3  4  5
+2 2  4  6  8 10
+3 3  6  9 12 15
+4 4  8 12 16 20
+5 5 10 15 20 25
+*/
+/*
+function showMultTable(num)
+{
+  function format(neFormat)
+  {
+    const reFormat = neFormat < 10 ? ` ${neFormat}` : `${neFormat}`;
+    return reFormat;
+  }
+
+  const numsArr = Array.from({ length: num }, (item, index) => index + 1);
+
+  for(let i = 0; i <= num; i += 1)
+  {
+    if(i === 0)
+    {
+      console.log('   ', numsArr.join('  '));
+    }
+    else
+    {
+      const multNumArr = numsArr.map((item) => format(item * i));
+      console.log(`${i} `, multNumArr.join(' '));
+    }
+  }
+}
+
+showMultTable(9);
+*/
