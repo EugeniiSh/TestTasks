@@ -32,11 +32,16 @@ body {
   position: relative;
   width: 100rem;
   height: 100rem;
+  font-size: 48rem;
+  text-align: center;
   cursor: pointer;
   transition: 0.3s;
 }
 .cell:hover {
   box-shadow: inset 2rem 2rem 5rem rgb(0, 0, 0);
+}
+.cell_active_allow {
+  box-shadow: inset 5rem 5rem 15rem rgb(0, 178, 0), inset -5rem -5rem 15rem rgb(0, 178, 0);
 }
 
 .new-game {
@@ -56,12 +61,13 @@ body {
 .horse {
   display: none;
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100rem;
   height: 100rem;
 }
-
 .horse_active {
-  display: "";
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

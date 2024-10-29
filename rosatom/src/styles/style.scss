@@ -42,12 +42,20 @@ body
   width: 100rem;
   height: 100rem;
 
+  font-size: 48rem;
+  text-align: center;
+
   cursor: pointer;
   transition: 0.3s;
 
   &:hover
   {
     box-shadow: inset 2rem 2rem 5rem rgb(0, 0, 0);
+  }
+
+  &_active_allow
+  {
+    box-shadow: inset 5rem 5rem 15rem rgb(0, 178, 0), inset -5rem -5rem 15rem rgb(0, 178, 0);
   }
 }
 
@@ -75,12 +83,14 @@ body
 {
   display: none;
   position: absolute;
+  top: 0;
+  left: 0;
 
   width: 100rem;
   height: 100rem;
-}
 
-.horse_active
-{
-  display: '';
+  &_active
+  {
+    display: block;
+  }
 }
