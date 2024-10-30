@@ -48,10 +48,10 @@ field.addEventListener('click', (event) => {
                     filledCells += 1;
             });
             if (filledCells === 100) {
-                alert('you win!');
+                showEndGame('You win!', '../../assets/images/coolhorse.png');
             }
             else {
-                alert('gamover');
+                showEndGame('GaMoVeR!', '../../assets/images/lolhorse2.png');
             }
         }
     }
@@ -67,4 +67,35 @@ newGame.addEventListener('click', () => {
     prevCell = null;
     horse.classList.remove('horse_active');
 });
+function showEndGame(text, imgSrc) {
+    const body = document.querySelector('body');
+    const div = document.createElement('div');
+    const img = document.createElement('img');
+    img.src = imgSrc;
+    const modalWindow = div.cloneNode();
+    const endGame = div.cloneNode();
+    const imgBlock = div.cloneNode();
+    const closeBlock = div.cloneNode();
+    const textBlock = div.cloneNode();
+    textBlock.textContent = text;
+    modalWindow.classList.add('modal-window');
+    endGame.classList.add('end-game');
+    textBlock.classList.add('end-game__text');
+    imgBlock.classList.add('end-game__img');
+    closeBlock.classList.add('end-game__close');
+    modalWindow.addEventListener('click', (event) => {
+        const currentBlock = event.target;
+        if (currentBlock !== null
+            && (currentBlock === closeBlock || !currentBlock.closest('.end-game'))) {
+            modalWindow.remove();
+        }
+    });
+    if (body !== null) {
+        imgBlock.append(img);
+        endGame.append(imgBlock, textBlock, closeBlock);
+        modalWindow.append(endGame);
+        body.append(modalWindow);
+    }
+}
+alert('В этой работе не используется Angular, ибо не знаком с этой технологией, пока что. Но мне было интересно и я её сделал. Спасибо за внимание.');
 //# sourceMappingURL=main.js.map

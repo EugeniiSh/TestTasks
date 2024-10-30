@@ -68,11 +68,11 @@ field.addEventListener('click', (event) =>
 
       if(filledCells === 100)
       {
-        alert('you win!');
+        showEndGame('You win!', '../../assets/images/coolhorse.png');
       }
       else
       {
-        alert('gamover');
+        showEndGame('GaMoVeR!', '../../assets/images/lolhorse2.png');
       }
       
     }
@@ -94,3 +94,46 @@ newGame.addEventListener('click', () =>
   prevCell = null;
   horse.classList.remove('horse_active');
 })
+
+function showEndGame(text: string, imgSrc: string)
+{
+  const body = document.querySelector('body');
+  const div = document.createElement('div');
+  const img = document.createElement('img');
+  img.src = imgSrc;
+
+  const modalWindow = div.cloneNode() as HTMLDivElement;
+  const endGame = div.cloneNode() as HTMLDivElement;
+  const imgBlock = div.cloneNode() as HTMLDivElement;
+  const closeBlock = div.cloneNode() as HTMLDivElement;
+  const textBlock = div.cloneNode() as HTMLDivElement;
+  textBlock.textContent = text;
+
+  modalWindow.classList.add('modal-window');
+  endGame.classList.add('end-game');
+  textBlock.classList.add('end-game__text');
+  imgBlock.classList.add('end-game__img');
+  closeBlock.classList.add('end-game__close');
+
+  modalWindow.addEventListener('click', (event) =>
+  {
+    const currentBlock = event.target as HTMLElement | null;
+
+    if(currentBlock !== null
+      && (currentBlock === closeBlock || !currentBlock.closest('.end-game'))
+    )
+    {
+      modalWindow.remove();
+    }
+  })
+
+  if(body !== null)
+  {
+    imgBlock.append(img);
+    endGame.append(imgBlock, textBlock, closeBlock);
+    modalWindow.append(endGame);
+    body.append(modalWindow);
+  }
+}
+
+alert('В этой работе не используется Angular, ибо не знаком с этой технологией, пока что. Но мне было интересно и я её сделал. Спасибо за внимание.')
