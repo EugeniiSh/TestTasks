@@ -68,11 +68,11 @@ field.addEventListener('click', (event) =>
 
       if(filledCells === 100)
       {
-        showEndGame('You win!', '../../assets/images/coolhorse.png');
+        showEndGame('You win!', 'assets/images/coolhorse.png');
       }
       else
       {
-        showEndGame('GaMoVeR!', '../../assets/images/lolhorse2.png');
+        showEndGame('GaMoVeR!', 'assets/images/lolhorse2.png');
       }
       
     }
