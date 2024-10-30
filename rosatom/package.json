@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "sass": "^1.80.4"
+  },
+  "scripts": {
+    "sasrun": "sass src/styles/style.scss dist/styles/style.css",
+    "saswatch": "sass --watch src/styles/style.scss dist/styles/style.css",
+    "tsrun": "npx tsc"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.1",
+    "tslint": "^5.20.1",
+    "typescript": "^5.6.3"
+  }
+}
